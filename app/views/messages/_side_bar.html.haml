@@ -6,13 +6,17 @@
           = current_user.name
       .side-header__box--menu
         .side-header__box--menu-new-group
-          %i.far.fa-edit
+          = link_to new_group_path do
+            %i.far.fa-edit
         .side-header__box--menu-edit-user
           = link_to edit_user_path(current_user) do
             %i.fas.fa-cog
   .side-main
     .side-main__group
-      .side-main__group--title
-        %p グループ名
-      .side-main__group--message
-        %p メッセージ
+      - current_user.groups.each do |group|
+        = link_to '#' do
+          .side-main__group--title
+            %p
+              = group.name
+          .side-main__group--message
+            %p メッセージはまだありません。
