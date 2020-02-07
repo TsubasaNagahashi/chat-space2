@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+.wrapper {
+}
+
 .side-bar {
   float: left;
 }
@@ -49,6 +52,9 @@
     background-color: #2f3e51;
     width: calc(300px - 40px);
     height: 35px;
+    a {
+      text-decoration: none;
+    }
     &--title {
       p {
         font-size: 15px;
@@ -113,6 +119,7 @@
   height: calc(100vh - 100px - 90px);
   width: calc(100vw - 300px);
   background-color: #fafafa;
+  overflow:  scroll;
 }
 
 .main-footer {
@@ -128,23 +135,23 @@
     margin-top: 10px;
     &--input {
       height: 50px;
-      width: calc(100vw - 300px - 80px - 110px);
+      width: calc(100vw - 300px - 80px - 110px - 10px);
       background-color: white;
       margin-top: 10px;
       margin-left: 40px;
       padding-left: 10px;
       border: none;
       position: relative;
-      &-image {
-        position: absolute;
-        right: 160px;
-        bottom: 35px;
-        i {
-          font-size: 25px;
-        }
-        input {
-          display: none;
-        }
+    }
+    &--input-image {
+      position: absolute;
+      right: 170px;
+      bottom: 35px;
+      i {
+        font-size: 25px;
+      }
+      input {
+        display: none;
       }
     }
     &--submit {
@@ -156,5 +163,24 @@
       width: 90px;
       color: white;
     }
+  }
+}
+.message {
+  padding-top: 30px;
+  padding-left: 50px;
+  .upper-message {
+    display: flex;
+    &__user-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    &__date {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  }
+  .lower-message {
+    padding-top: 5px;
+    font-size: 12px;
   }
 }

@@ -2,16 +2,23 @@
   .main-header
     .main-header__left-box
       .main-header__left-box--group-title
-        %p グループ名
+        %p
+          = @group.name
       .main-header__left-box--group-member
-        %p Member: nagahashi（機能未実装）
+        %p
+          Member:
+          = @group.users.pluck(:name).join(" , ")
     .main-header__edit-button
-      %p Edit
+      = link_to edit_group_path(@group) do
+        %p Edit
   .main-chatspace
+    = render @messages.order(id: "DESC")
   .main-footer
     .main-footer__from
-      %input.main-footer__from--input{placeholder: "type a message"}
-        %label.main-footer__from--input-image
-          %i.f.fas.fa-images
-          %input{type: "file"}
-      %input.main-footer__from--submit{type: "button", value: "Send"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'main-footer__from--input', placeholder: "type a message"
+        .main-footer__from--input-image
+          = f.label :image do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'image'
+        = f.submit 'Send', class: 'main-footer__from--submit'
