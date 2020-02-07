@@ -2,12 +2,14 @@
   .side-header
     .side-header__box
       .side-header__box--user-name
-        %P nagahashi
+        %P
+          = current_user.name
       .side-header__box--menu
         .side-header__box--menu-new-group
           %i.far.fa-edit
         .side-header__box--menu-edit-user
-          %i.fas.fa-cog
+          = link_to edit_user_path(current_user) do
+            %i.fas.fa-cog
   .side-main
     .side-main__group
       .side-main__group--title

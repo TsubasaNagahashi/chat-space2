@@ -134,6 +134,18 @@
       margin-left: 40px;
       padding-left: 10px;
       border: none;
+      position: relative;
+      &-image {
+        position: absolute;
+        right: 160px;
+        bottom: 30px;
+        i {
+          font-size: 30px;
+        }
+        input {
+          display: none;
+        }
+      }
     }
     &--submit {
       height: 50px;
